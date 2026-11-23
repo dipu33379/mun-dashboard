@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUN Dashboard - Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Sticky Header -->
+    <header>
+        <h1>MUN Organizer Dashboard</h1>
+        <nav>
+            <a href="#matrix">1. Country Matrix</a>
+            <a href="#register">2. Registration</a>
+            <a href="#guides">3. Study Guides</a>
+            <a href="#debate">4. Live Debate</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1. Country Matrix -->
+        <section id="matrix">
+            <h2>Country Matrix</h2>
+            <div class="filter-box">
+                <label>Select Committee: </label>
+                <select id="matrix-committee-filter">
+                    <option value="UNSC">UNSC</option>
+                    <option value="UNHRC">UNHRC</option>
+                    <option value="DISEC">DISEC</option>
+                </select>
+                <span id="matrix-stats"></span>
+            </div>
+            <div id="matrix-grid"></div>
+        </section>
+
+        <!-- 2. Registration Form -->
+        <section id="register">
+            <h2>Delegate Registration</h2>
+            <form id="reg-form">
+                <input type="text" id="del-name" placeholder="Delegate Full Name" required>
+                <textarea id="del-exp" placeholder="Past MUN Experience (Awards, if any)" required></textarea>
+                <select id="reg-committee" required>
+                    <option value="">-- Choose Committee --</option>
+                    <option value="UNSC">UNSC</option>
+                    <option value="UNHRC">UNHRC</option>
+                    <option value="DISEC">DISEC</option>
+                </select>
+                <select id="reg-country" required>
+                    <option value="">-- Choose Country (Select Committee First) --</option>
+                </select>
+                <button type="submit" class="primary-btn">Allocate Seat</button>
+            </form>
+        </section>
+
+        <!-- 3. Study Guides -->
+        <section id="guides">
+            <h2>Study Guides & Agendas</h2>
+            <label>Select Committee to view Guide: </label>
+            <select id="guide-committee-select">
+                <option value="">-- Choose Committee --</option>
+                <option value="UNSC">UNSC</option>
+                <option value="UNHRC">UNHRC</option>
+                <option value="DISEC">DISEC</option>
+            </select>
+            
+            <div id="guide-content-box" style="display: none;">
+                <h3 id="guide-title"></h3>
+                <p id="guide-agenda"></p>
+                <a id="guide-download-btn" href="#" download class="download-btn">Download PDF Guide</a>
+            </div>
+        </section>
+
+        <!-- 4. Live Debate Simulator -->
+        <section id="debate">
+            <h2>Live Debate Simulator</h2>
+            
+            <div id="debate-tabs">
+                <button id="tab-unsc" class="active-tab">UNSC Room</button>
+                <button id="tab-unhrc">UNHRC Room</button>
+                <button id="tab-disec">DISEC Room</button>
+            </div>
+
+            <h3 id="active-room-title">UNSC Room Active</h3>
+
+            <div class="gsl-controls">
+                <select id="speaker-select">
+                    <option value="">-- Select Allocated Country --</option>
+                </select>
+                <button id="add-speaker-btn" class="primary-btn">Add to GSL</button>
+            </div>
+            
+            <ol id="gsl-queue"></ol>
+
+            <div class="timer-container">
+                <h1 id="timer-display">01:00</h1>
+                <div class="timer-buttons">
+                    <button id="start-btn" class="success-btn">Start</button>
+                    <button id="pause-btn" class="warning-btn">Pause</button>
+                    <button id="reset-btn" class="danger-btn">Reset</button>
+                    <button id="next-speaker-btn" class="primary-btn">Next Speaker</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
